@@ -1,0 +1,32 @@
+<html>
+<style>
+body {background-color: powderblue;}
+header {font-size: 40px;}
+</style>
+<center>
+  <form action="/collection" method="POST">
+  <header>Week Planner</header>
+  <select name='day'>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+  </select>
+    <input type="text" name = 'assignment' placeholder="Assignment">
+    <button type="submit">Add Item</button>
+  </form>
+  <ul class="assignments">
+  <% for(var i=0; i < collection.length; i++) {%>
+    <li class="item">
+      <span><%= collection[i].day %></span>
+      <span><%= collection[i].assignment %></span>
+      <a href='/render'>Edit Item</a>
+    </li>
+  <% } %>
+</ul>
+<form action="/delete" method="POST">
+  <button type='/'>Delete Item</button>
+</form>
+</center>
+</html>
